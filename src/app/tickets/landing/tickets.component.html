@@ -1,0 +1,55 @@
+<app-header></app-header>
+
+
+
+  <main class="container">
+    <h1>Tickets</h1>
+    <br>
+    <div class="row" >
+        <div class="float-start">
+
+            <a routerLink="/landing/tickets.component" class="btn btn-primary" role="button">
+                <i class="fas fa-plus-circle"></i> 
+                Open New Ticket
+            </a> 
+        </div>           
+    </div>
+    <br>   
+    
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">    
+            <tr>
+                <th class="text-center">Date</th>                    
+                <th class="text-center">Description</th>
+                <th class="text-center">Complete</th>
+                <th class="text-center" colspan="3">Actions</th>
+            </tr>
+
+            <tr *ngFor="let data of ticketList">
+            <!-- <% for(let i = 0; i < landingList.length; i++) { }} -->
+                    <td class="text-center"> {{ data._date }}</td>
+                    <td class="text-center"> {{ data._description }}</td>
+                    <td class="text-center"> {{ data._complete }}</td>                        
+                    <td class="text-center">
+                        <a routerLink="/landing/tickets.component/ {{ data._id }}" class="btn btn-success btn-sm"> 
+                        <i class="fas fa-info"></i> </a>
+                    </td>
+                    <td class="text-center">
+                        <!-- <a routerLink="/landing/edit/ {{ data._id }}" class="btn btn-primary btn-sm" role="button"> -->
+                        <button [routerLink]="['/tickets/edit', data._id]" class="btn bg-primary btn-primary btn-sm"></button>
+                        <i class="fas fa-pencil-alt"></i>
+                    </td>
+                    <td class="text-center">
+                        <!-- <a routerLink="/landing/delete/ {{ data._id }}" class="btn btn-danger btn-sm" role="button"> -->
+                        <a (click)="deleteMethod(data._id)" class="btn bg-danger btn-danger btn-sm"></a>
+                        <i class="fas fa-trash-alt">
+                        
+                        </i>
+                    </td>
+                </tr>
+            <!-- <% } }} -->
+        </table>
+    </div>
+  </main>
+  
+  <app-footer></app-footer>

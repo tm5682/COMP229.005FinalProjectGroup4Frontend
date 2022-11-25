@@ -1,0 +1,25 @@
+  <nav class="navbar fixed-top navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" RouterLink="#">
+        <img src="/images/logo.png" alt="logo" style="width:40px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+      
+            <li class="nav-item"><a RouterLink="/">HOME</a></li> &nbsp; &nbsp; &nbsp;
+            <li id="home"><a RouterLink="/users/signup">Signup</a></li> &nbsp; &nbsp; &nbsp;
+            <li class="nav-item">  
+              <!-- <% if (typeof userName == 'string' && userName) { %> -->
+                <!-- <a RouterLink="/users/signout" onclick="return confirm('Are you sure?')">Sign Out (<%= userName %>)</a> -->
+                <a routerLink="/users/signin">Signin</a>            
+            </li> 
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br>
+    <br>
+    <br>

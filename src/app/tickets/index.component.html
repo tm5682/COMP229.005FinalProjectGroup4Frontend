@@ -1,0 +1,54 @@
+
+
+
+<body>
+  <main class="container">
+    <h1>{{  title }}</h1>
+    <br>
+    <div class="row" >
+        <div class="float-start">
+            <a routerLink="/tickets/add" class="btn btn-primary" role="button">
+                <i class="fas fa-plus-circle"></i> 
+                Open a New Ticket
+            </a>
+        </div>           
+    </div>
+    <br>   
+    
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+            <tr>
+                <th class="text-center">Date</th>                    
+                <th class="text-center">Description</th>
+                <th class="text-center">Complete</th>
+                <th class="text-center" colspan="3">Actions</th>
+            </tr>
+
+            <tr *ngFor="let data of ticketList">
+                    <td>{{data._date }}</td>
+                    <td>{{data._description }}</td>
+                    <td>{{data._complete }}</td>                     
+                    <td class="text-center">
+                        <button [routerLink]="['/tickets/open/', data._id ]" class="btn btn-success btn-sm"> 
+                        <i class="fas fa-info"></i> </button>
+                    </td>
+                    <td class="text-center">
+                        <button [routerLink]="['/tickets/edit/', data._id ]" class="btn btn-primary btn-sm" role="button">
+                        <i class="fas fa-pencil-alt"></i></button>
+                    </td>
+                    <td class="text-center">
+                        <button [routerLink]="['/tickets/delete/', data._id ]" class="btn btn-danger btn-sm" role="button">
+                        <i class="fas fa-trash-alt">
+                        </i></button>
+                    </td>
+                </tr>
+                    <tr>
+                        <td colspan="7">No data Found</td>
+                    </tr>
+        </table>
+    </div>
+  </main>
+  
+  </body> 
+
+
