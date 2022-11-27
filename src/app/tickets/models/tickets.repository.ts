@@ -50,7 +50,7 @@ export class TicketRepository {
                 // Convert into ResponseModel to get the error message.
                 let response = resp as ResponseModel;
                 if (response.success == true) {
-                    console.log(`Sucess: ${response.success}`);
+                    console.log(`Success: ${response.success}`);
                     this.tickets.splice(this.tickets.
                         findIndex(i => i._id == item._id), 1, item);
                 }

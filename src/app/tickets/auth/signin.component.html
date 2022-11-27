@@ -1,21 +1,23 @@
-<%- include('../partials/header.ejs') %>
+<app-header [title]="title"></app-header>
 
 <div class="container">
     <div class="row">
 
         <div class="offset-md-3 col-md-3">
-            <h1><%= title %></h1>
-            <% for(var i in messages) { %>
-                <div class="flash"><%= messages[i] %></div>
-            <% } %>
-            <form action="/users/signin" method="post">
+            <h1>{{ title }}</h1>
+          
+            <div class="bg-danger mt-2 p-2 text-center text-white" *ngIf="message != null">
+                {{message}}
+            </div>
+
+            <form novalidate #form="ngForm" (ngSubmit)="authenticate(form)">
                 <div class="form-group">
                     <label>Username:</label>
-                    <input type="text" name="username" class="form-control" />
+                    <input type="text" name="username" [(ngModel)]="username" class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label>Password:</label>
-                    <input type="password" name="password" class="form-control"/>
+                    <input type="password" name="password" [(ngModel)]="password" class="form-control"/>
                 </div>
                 <br>
                 <div class="form-group">
@@ -25,7 +27,7 @@
                 <div class="form-group">
                     <a href="/users/signup" style="text-decoration: none">                
                         <i class="fas fa-user-plus"></i> 
-                        Signup
+                        Sign-up
                     </a>
                 </div>
             </form>
@@ -35,4 +37,4 @@
         </div>
     </div>
 </div>
-<%- include('../partials/footer.ejs') %>
+<app-footer></app-footer>

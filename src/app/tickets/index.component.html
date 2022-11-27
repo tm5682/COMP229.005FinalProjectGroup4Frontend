@@ -1,13 +1,15 @@
-
+<app-header [title]="title"></app-header>
 
 
 <body>
   <main class="container">
-    <h1>{{  title }}</h1>
+    <h1>TKT PRO</h1>
+   
     <br>
     <div class="row" >
         <div class="float-start">
-            <a routerLink="/tickets/add" class="btn btn-primary" role="button">
+            <!-- <a routerLink="/landing/add" class="btn btn-primary" role="button"> -->
+                <a href="../tickets/landing/add_edit" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i> 
                 Open a New Ticket
             </a>
@@ -43,7 +45,7 @@
                     </td>
                 </tr>
                     <tr>
-                        <td colspan="7">No data Found</td>
+                        <td colspan="7"></td>
                     </tr>
         </table>
     </div>
@@ -51,4 +53,4 @@
   
   </body> 
 
-
+  <app-footer></app-footer>

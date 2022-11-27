@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <h1>{{editing ? "Edit" : "Add a new ticket"}} item</h1>
+           
+            <form novalidate #form="ngForm" (ngSubmit)="save(form)">
+                <div class="form-group">
+                    <input type="hidden"
+                        name="id"
+                        [(ngModel)]="item._id"
+                    >
+                    <label for="itemTextField">Date</label>
+                    <input type="text" class="form-control"
+                        id="itemTextField"
+                        placeholder="MM/DD/AAAA"
+                        name="date" 
+                        [(ngModel)]="item._date"
+                        required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="descriptionTextField">Description</label>
+                    <input type="text" class="form-control"
+                    id="descriptionTextField"
+                    placeholder="Provide a description"
+                    name="description" 
+                    [(ngModel)]="item._description"
+                    required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="statusTextField">Complete</label>
+                    <input type="text" class="form-control"
+                    id="statusTextField"
+                    placeholder="Enter a status"
+                    name="complete" 
+                    [(ngModel)]="item._complete"
+                    >
+                </div>
+                <br>
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-edit"></i> 
+                    Submit
+                </button>
+                <a href="#" routerLink="/inventory/list" class="btn btn-warning">
+                    <i class="fas fa-undo"></i> 
+                    Cancel
+                </a>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<app-footer></app-footer>

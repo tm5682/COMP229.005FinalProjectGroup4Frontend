@@ -7,9 +7,7 @@ import {RouterModule} from '@angular/router';
 
 @NgModule({
     imports: [BrowserModule, FormsModule, PartialsModule, RouterModule],
-    declarations: [
-        IndexComponent
-    ],
+    declarations: [IndexComponent],
     exports: [IndexComponent]
 })
 

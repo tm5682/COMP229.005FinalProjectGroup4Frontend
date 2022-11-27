@@ -1,7 +1,7 @@
 import { Component} from "@angular/core";
 import { Router} from "@angular/router";
-import { Tickets} from "../../model/tickets.model";
-import { TicketRepository } from "src/app/model/tickets.repository";
+import { Tickets} from "../models/tickets.model";
+import { TicketRepository } from "src/app/tickets/models/tickets.repository";
 
 @Component({
     selector: "tickets-tickets",
@@ -9,8 +9,11 @@ import { TicketRepository } from "src/app/model/tickets.repository";
 })
 
 export class TicketsComponent {
-    constructor(private repository: TicketRepository,
-        private router: Router){}
+    constructor(public repository: TicketRepository,
+        private router: Router)
+        {
+            repository.setTickets();
+        }
 
     get ticketList(): Tickets[] {
         return this.repository.getTickets();
@@ -18,7 +21,7 @@ export class TicketsComponent {
 
     deleteMethod(id: string) {
         if(confirm("Are you sure you want to delete?")) {
-            this.router.navigateByUrl("tickets/delete/+id");
+            this.router.navigateByUrl("tickets/delete/"+id);
         }
     }
 }

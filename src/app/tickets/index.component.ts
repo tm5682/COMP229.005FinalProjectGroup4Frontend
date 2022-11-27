@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import { Tickets} from "../model/tickets.model";
-import { TicketRepository } from "src/app/model/tickets.repository";
+import {Tickets} from "./models/tickets.model";
+import { TicketRepository } from "src/app/tickets/models/tickets.repository";
 import { Router } from "@angular/router";
 
 @Component({

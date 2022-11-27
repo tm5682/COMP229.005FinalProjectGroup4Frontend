@@ -1,4 +1,6 @@
-import {Component} from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from "@angular/router";
+import { AuthService } from 'src/app/tickets/models/auth.service';
 
 @Component({
     selector: 'app-header',
@@ -6,6 +8,14 @@ import {Component} from '@angular/core';
 })
 
 export class HeaderComponent {
+    @Input() title?: string;
 
-    constructor(){}
+    constructor(public auth: AuthService, private router: Router) { }
+
+    logout(){
+        if(confirm ('Are you sure?')){
+            this.auth.clear();
+            this.router.navigateByUrl("/");
+        }
+    }
 }
