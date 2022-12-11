@@ -87,9 +87,10 @@ export class RestDataSource {
             ...user,
             password_confirm: confirmPassword
         }
-        return this.http.post<ResponseModel>(this.baseUrl + "users/signup", confirmedUser)
+        return this.http.post<string>(this.baseUrl + "users/signup", confirmedUser)
             .pipe(map(response => {
-                return response;
+                console.log(response)
+                return new ResponseModel(true, response);
             }),
             catchError(error => {return of(error.error)}));
     }
