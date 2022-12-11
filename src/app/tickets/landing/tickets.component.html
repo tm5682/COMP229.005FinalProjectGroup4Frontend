@@ -1,23 +1,24 @@
-<app-header></app-header>
+<app-header [title]=""></app-header>
 
 
 
   <main class="container">
-    <h1>Tickets</h1>
-    <br>
-    <div class="row" >
-        <div class="float-start">
+    <div class="row">
 
+    <h1>{{ ticketList }}</h1>
+    <br>
+    <div>
             <a routerLink="/landing/tickets.component" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i> 
                 Open New Ticket
             </a> 
         </div>           
     </div>
-    <br>   
     
-    <div class="table-responsive">
-        <table class="table table-bordered table-striped table-hover">    
+    
+    <!-- <div class="table-responsive" *ngIf="this.repository.listReady == true"> -->
+        <table class="table table-bordered table-striped table-hover">  
+
             <tr>
                 <th class="text-center">Date</th>                    
                 <th class="text-center">Description</th>
@@ -41,15 +42,15 @@
                     </td>
                     <td class="text-center">
                         <!-- <a routerLink="/landing/delete/ {{ data._id }}" class="btn btn-danger btn-sm" role="button"> -->
-                        <a (click)="deleteMethod(data._id)" class="btn bg-danger btn-danger btn-sm"></a>
-                        <i class="fas fa-trash-alt">
+                        <a (click)="deleteMethod(data._id)" class="btn bg-danger btn-danger btn-sm">
+                        <i class="fas fa-trash-alt"></i></a>
                         
-                        </i>
+                        
                     </td>
                 </tr>
             <!-- <% } }} -->
         </table>
-    </div>
+   
   </main>
   
   <app-footer></app-footer>

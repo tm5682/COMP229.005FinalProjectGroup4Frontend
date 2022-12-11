@@ -6,6 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Tickets } from "./tickets.model";
 import { ResponseModel } from "./response.model";
 import { User } from "./user.model";
+import { environment } from "src/environments/environment";
 
 const PROTOCOL = "http";
 const PORT = 3000;
