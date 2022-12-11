@@ -4,5 +4,6 @@ export class Tickets {
         public _date?: string,
         public _description?: string,
         public _complete?: boolean,
+        public __v?: any
     ){}
 }

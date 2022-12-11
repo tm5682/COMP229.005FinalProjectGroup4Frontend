@@ -19,12 +19,13 @@ export class RestDataSource {
     auth_token: string;
 
     constructor(private http: HttpClient) {        
-        this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+        this.baseUrl = `https://group4-comp229.herokuapp.com/`;
     }
 
     // Tickets
     getTicketsList(): Observable<Tickets[]> {
-        return this.http.get<Tickets[]>(this.baseUrl + "tickets/list");
+        return this.http.get<Tickets[]>(this.baseUrl);
+    
     }
 
     insertTickets(item: Tickets): Observable<Tickets> {
