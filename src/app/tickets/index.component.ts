@@ -20,5 +20,6 @@ export class IndexComponent {
 
     get ticketList(): Tickets[] {
         return this.repository.getTickets();
+    
     }
 }
