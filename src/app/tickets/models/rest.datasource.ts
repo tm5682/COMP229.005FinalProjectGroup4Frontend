@@ -19,7 +19,7 @@ export class RestDataSource {
     auth_token: string;
 
     constructor(private http: HttpClient) {        
-        this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+        this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`; //https://group4-comp229.herokuapp.com/
     }
 
     // Tickets
@@ -82,8 +82,12 @@ export class RestDataSource {
         );
     }
 
-    signupUser(user: User): Observable<ResponseModel> {
-        return this.http.post<ResponseModel>(this.baseUrl + "users/signup", user)
+    signupUser(user: User, confirmPassword: String): Observable<ResponseModel> {
+        const confirmedUser = {
+            ...user,
+            password_confirm: confirmPassword
+        }
+        return this.http.post<ResponseModel>(this.baseUrl + "users/signup", confirmedUser)
             .pipe(map(response => {
                 return response;
             }),

@@ -21,7 +21,7 @@ export class SignUpComponent {
         if (form.valid) {
             // Checks if the passwords match.
             if(this.user.password == this.confirmPassowrd){
-                this.auth.signupUser(this.user)
+                this.auth.signupUser(this.user, this.confirmPassowrd)
                     .subscribe(response => {
                         console.log(response);
                         
