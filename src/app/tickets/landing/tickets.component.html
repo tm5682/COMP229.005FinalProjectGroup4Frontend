@@ -28,9 +28,9 @@
 
             <tr *ngFor="let data of ticketList">
             <!-- <% for(let i = 0; i < landingList.length; i++) { }} -->
-                    <td class="text-center"> {{ data._date }}</td>
-                    <td class="text-center"> {{ data._description }}</td>
-                    <td class="text-center"> {{ data._complete }}</td>                        
+                    <td class="text-center"> {{ data.date }}</td>
+                    <td class="text-center"> {{ data.description }}</td>
+                    <td class="text-center"> {{ data.complete }}</td>                        
                     <td class="text-center">
                         <a routerLink="/landing/tickets.component/ {{ data._id }}" class="btn btn-success btn-sm"> 
                         <i class="fas fa-info"></i> </a>

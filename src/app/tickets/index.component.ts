@@ -11,8 +11,12 @@ import { Router } from "@angular/router";
 export class IndexComponent {
 
     public title : string = "Index Page"
+
     constructor(private repository: TicketRepository,
-        private router: Router){}
+        private router: Router)
+        {
+            repository.setTickets();
+        }
 
     get ticketList(): Tickets[] {
         return this.repository.getTickets();

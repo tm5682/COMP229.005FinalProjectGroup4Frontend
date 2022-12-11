@@ -24,7 +24,15 @@ export class RestDataSource {
 
     // Tickets
     getTicketsList(): Observable<Tickets[]> {
-        return this.http.get<Tickets[]>(this.baseUrl + "tickets/list");
+        return this.http.get<any>(this.baseUrl
+            ).pipe(map(response => {
+            return response.Tickets;
+        }),
+        catchError(error => {
+            console.log(error.error);
+            return of(error.error);
+        })
+        );;
     }
 
     insertTickets(item: Tickets): Observable<Tickets> {
