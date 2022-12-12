@@ -20,16 +20,20 @@
     <div class="table-responsive">
         <table class="table table-bordered table-striped table-hover">
             <tr>
-                <th class="text-center">Date</th>                    
+                <th class="text-center">Date</th>   
+                <th class="text-center">Reference Number</th> 
+                <th class="text-center">Priority</th>                     
                 <th class="text-center">Description</th>
-                <th class="text-center">Complete</th>
+                <th class="text-center">Status</th>
                 <th class="text-center" colspan="3">Actions</th>
             </tr>
 
             <tr *ngFor="let data of ticketList">
                     <td>{{data.date }}</td>
+                    <td>{{data.record }}</td>
+                    <td>{{data.priority }}</td>
                     <td>{{data.description }}</td>
-                    <td>{{data.complete }}</td>                     
+                    <td>{{data.status }}</td>                     
                     <td class="text-center">
                         <button [routerLink]="['/tickets/open/', data._id ]" class="btn btn-success btn-sm"> 
                         <i class="fas fa-info"></i> </button>

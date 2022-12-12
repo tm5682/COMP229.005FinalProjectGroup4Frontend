@@ -20,17 +20,21 @@
         <table class="table table-bordered table-striped table-hover">  
 
             <tr>
-                <th class="text-center">Date</th>                    
+                <th class="text-center">Date</th>   
+                <th class="text-center">Reference Number</th> 
+                <th class="text-center">Priority</th>                     
                 <th class="text-center">Description</th>
-                <th class="text-center">Complete</th>
+                <th class="text-center">Status</th>
                 <th class="text-center" colspan="3">Actions</th>
             </tr>
 
             <tr *ngFor="let data of ticketList">
             <!-- <% for(let i = 0; i < landingList.length; i++) { }} -->
-                    <td class="text-center"> {{ data.date }}</td>
-                    <td class="text-center"> {{ data.description }}</td>
-                    <td class="text-center"> {{ data.complete }}</td>                        
+                <td>{{data.date }}</td>
+                <td>{{data.record }}</td>
+                <td>{{data.priority }}</td>
+                <td>{{data.description }}</td>
+                <td>{{data.status }}</td>                           
                     <td class="text-center">
                         <a routerLink="/landing/tickets.component/ {{ data._id }}" class="btn btn-success btn-sm"> 
                         <i class="fas fa-info"></i> </a>
@@ -44,13 +48,10 @@
                         <!-- <a routerLink="/landing/delete/ {{ data._id }}" class="btn btn-danger btn-sm" role="button"> -->
                         <a (click)="deleteMethod(data._id)" class="btn bg-danger btn-danger btn-sm">
                         <i class="fas fa-trash-alt"></i></a>
-                        
-                        
+                                               
                     </td>
                 </tr>
-            <!-- <% } }} -->
-        </table>
-   
+        </table>  
   </main>
   
   <app-footer></app-footer>

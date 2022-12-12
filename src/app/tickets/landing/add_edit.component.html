@@ -21,6 +21,16 @@
                 </div>
                 <br>
                 <div class="form-group">
+                    <label for="priorityTextField">Priotiry</label>
+                    <input type="text" class="form-control"
+                    id="priorityTextField"
+                    placeholder="High/Medium/Low"
+                    name="priority" 
+                    [(ngModel)]="item.priority"
+                    required>
+                </div>
+                <br>
+                <div class="form-group">
                     <label for="descriptionTextField">Description</label>
                     <input type="text" class="form-control"
                     id="descriptionTextField"
@@ -28,16 +38,6 @@
                     name="description" 
                     [(ngModel)]="item.description"
                     required>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="statusTextField">Complete</label>
-                    <input type="text" class="form-control"
-                    id="statusTextField"
-                    placeholder="Enter a status"
-                    name="complete" 
-                    [(ngModel)]="item.complete"
-                    >
                 </div>
                 <br>
                 <button class="btn btn-primary" type="submit">
