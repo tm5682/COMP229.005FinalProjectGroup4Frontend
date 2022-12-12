@@ -19,13 +19,23 @@ export class RestDataSource {
     auth_token: string;
 
     constructor(private http: HttpClient) {        
-        this.baseUrl = `https://group4-comp229.herokuapp.com/`;
+
+        this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`; //https://group4-comp229.herokuapp.com/
+
     }
 
     // Tickets
     getTicketsList(): Observable<Tickets[]> {
-        return this.http.get<Tickets[]>(this.baseUrl);
-    
+
+        return this.http.get<any>(this.baseUrl
+            ).pipe(map(response => {
+            return response.Tickets;
+        }),
+        catchError(error => {
+            console.log(error.error);
+            return of(error.error);
+        })
+        );;
     }
 
     insertTickets(item: Tickets): Observable<Tickets> {
@@ -83,10 +93,15 @@ export class RestDataSource {
         );
     }
 
-    signupUser(user: User): Observable<ResponseModel> {
-        return this.http.post<ResponseModel>(this.baseUrl + "users/signup", user)
+    signupUser(user: User, confirmPassword: String): Observable<ResponseModel> {
+        const confirmedUser = {
+            ...user,
+            password_confirm: confirmPassword
+        }
+        return this.http.post<string>(this.baseUrl + "users/signup", confirmedUser)
             .pipe(map(response => {
-                return response;
+                console.log(response)
+                return new ResponseModel(true, response);
             }),
             catchError(error => {return of(error.error)}));
     }

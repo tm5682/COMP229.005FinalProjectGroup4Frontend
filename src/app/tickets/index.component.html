@@ -27,9 +27,9 @@
             </tr>
 
             <tr *ngFor="let data of ticketList">
-                    <td>{{data._date }}</td>
-                    <td>{{data._description }}</td>
-                    <td>{{data._complete }}</td>                     
+                    <td>{{data.date }}</td>
+                    <td>{{data.description }}</td>
+                    <td>{{data.complete }}</td>                     
                     <td class="text-center">
                         <button [routerLink]="['/tickets/open/', data._id ]" class="btn btn-success btn-sm"> 
                         <i class="fas fa-info"></i> </button>

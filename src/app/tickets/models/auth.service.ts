@@ -24,8 +24,8 @@ export class AuthService {
             }));
     }
 
-    signupUser(user: User): Observable<ResponseModel> {
-        return this.datasource.signupUser(user);
+    signupUser(user: User, confirmPassword: String): Observable<ResponseModel> {
+        return this.datasource.signupUser(user, confirmPassword);
     }
 
     get authenticated(): boolean {
