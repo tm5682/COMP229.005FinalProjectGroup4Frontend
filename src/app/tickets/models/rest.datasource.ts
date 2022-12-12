@@ -39,12 +39,12 @@ export class RestDataSource {
     }
 
     insertTickets(item: Tickets): Observable<Tickets> {
-        return this.http.post<Tickets>(
+        return this.http.post<string>(
                 this.baseUrl + "tickets/add",
                 item,
                 this.provideToken()
             ).pipe(map(response => {
-                return response;
+                return new ResponseModel(true, response);
             }),
             catchError(error => {
                 console.log(error.error);
@@ -54,23 +54,23 @@ export class RestDataSource {
     }
 
     updateTickets(item: Tickets): Observable<ResponseModel> {
-        return this.http.put<ResponseModel>(
+        return this.http.put<string>(
                 `${this.baseUrl}tickets/edit/${item._id}`,
                 item,
                 this.provideToken()
             ).pipe(map(response => {
-                return response;
+                return new ResponseModel(true, response);
             }),
             catchError(error => {return of(error.error)})
             );
     }
 
     deleteTickets(id: string): Observable<ResponseModel> {
-        return this.http.delete<ResponseModel>(
+        return this.http.delete<string>(
                 `${this.baseUrl}ickets/delete/${id}`,
                 this.provideToken()
                 ).pipe(map(response => {
-                return response;
+                return new ResponseModel(true, response);
             }),
             catchError(error => {return of(error.error)})
             );
@@ -87,7 +87,7 @@ export class RestDataSource {
             map(response => {
                 // console.log(response);
                 this.auth_token = response.success ? response.token : null;
-                return response;
+                return new ResponseModel(true, response);
             }),
             catchError(error => {return of(error.error)})
         );
