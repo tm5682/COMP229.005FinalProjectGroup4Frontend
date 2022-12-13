@@ -6,6 +6,6 @@ export class Tickets {
         public priority?: string,
         public record?: string,
         public description?: string,
-        public status?: boolean,
+        public status?: string,
     ){}
 }

@@ -21,7 +21,7 @@
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="priorityTextField">Priotiry</label>
+                    <label for="priorityTextField">Priority</label>
                     <input type="text" class="form-control"
                     id="priorityTextField"
                     placeholder="High/Medium/Low"
@@ -37,6 +37,16 @@
                     placeholder="Provide a description"
                     name="description" 
                     [(ngModel)]="item.description"
+                    required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="descriptionTextField">Status - admin only</label>
+                    <input type="text" class="form-control"
+                    id="descriptionTextField"
+                    placeholder="In Progress, Dispatched, Closed"
+                    name="description" 
+                    [(ngModel)]="item.status"
                     required>
                 </div>
                 <br>
