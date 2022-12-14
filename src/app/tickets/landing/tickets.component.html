@@ -1,32 +1,31 @@
 <app-header [title]=""></app-header>
 
-
-
-  <main class="container">
-    <div class="row">
-
+<main class="container">
+  <div class="row">
     <h1>{{ ticketList }}</h1>
-    <br>
+    <br />
     <div>
-            <a routerLink="/landing/tickets.component" class="btn btn-primary" role="button">
-                <i class="fas fa-plus-circle"></i> 
-                Open New Ticket
-            </a> 
-        </div>           
+      <a
+        routerLink="/landing/tickets.component"
+        class="btn btn-primary"
+        role="button"
+      >
+        <i class="fas fa-plus-circle"></i>
+        Open New Ticket
+      </a>
     </div>
-    
-    
-    <!-- <div class="table-responsive" *ngIf="this.repository.listReady == true"> -->
-        <table class="table table-bordered table-striped table-hover">  
+  </div>
 
-            <tr>
-                <th class="text-center">Date</th>   
-                <th class="text-center">Reference Number</th> 
-                <th class="text-center">Priority</th>                     
-                <th class="text-center">Description</th>
-                <th class="text-center">Status</th>
-                <th class="text-center" colspan="3">Actions</th>
-            </tr>
+  <!-- <div class="table-responsive" *ngIf="this.repository.listReady == true"> -->
+  <table class="table table-bordered table-striped table-hover">
+    <tr>
+      <th class="text-center">Date</th>
+      <th class="text-center">Reference Number</th>
+      <th class="text-center">Priority</th>
+      <th class="text-center">Description</th>
+      <th class="text-center">Status</th>
+      <th class="text-center" colspan="3">Actions</th>
+    </tr>
 
             <tr *ngFor="let data of ticketList">
             <!-- <% for(let i = 0; i < landingList.length; i++) { }} -->

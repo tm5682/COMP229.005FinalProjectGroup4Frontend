@@ -1,0 +1,11 @@
+.row {
+  position: relative;
+}
+
+.absolute-box {
+  position: absolute;
+  justify-content: space-between;
+  flex-direction: column;
+  right: 1rem;
+  top: 0;
+}

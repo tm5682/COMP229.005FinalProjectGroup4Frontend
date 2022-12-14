@@ -1,60 +1,86 @@
 <app-header></app-header>
 
-
 <body>
   <main class="container">
     <h1>TKT PRO</h1>
-   
-    <br>
-    <div class="row" >
-        <div class="float-start">
-            <!-- <a routerLink="/landing/add" class="btn btn-primary" role="button"> -->
-                <a href="../tickets/landing/add_edit" class="btn btn-primary" role="button">
-                <i class="fas fa-plus-circle"></i> 
-                Open a New Ticket
-            </a>
-        </div>           
+    <br />
+    <div class="row">
+      <div>
+        <!-- <a routerLink="/landing/add" class="btn btn-primary" role="button"> -->
+        <a
+          href="../tickets/landing/add_edit"
+          class="btn btn-primary"
+          role="button"
+        >
+          <i class="fas fa-plus-circle"></i>
+          Open a New Ticket
+        </a>
+        <div class="absolute-box">
+          <input
+            type="checkbox"
+            class="btn-check"
+            id="btn-check-outlined"
+            autocomplete="off"
+            [(ngModel)]="isAllTickets"
+          />
+          <label class="btn btn-outline-primary" for="btn-check-outlined"
+            >View closed</label
+          >
+        </div>
+      </div>
     </div>
-    <br>   
-    
-    <div class="table-responsive">
-        <table class="table table-bordered table-striped table-hover">
-            <tr>
-                <th class="text-center">Date</th>   
-                <th class="text-center">Reference Number</th> 
-                <th class="text-center">Priority</th>                     
-                <th class="text-center">Description</th>
-                <th class="text-center">Status</th>
-                <th class="text-center" colspan="3">Actions</th>
-            </tr>
+    <br />
 
-            <tr *ngFor="let data of ticketList">
-                    <td>{{data.date }}</td>
-                    <td>{{data.record }}</td>
-                    <td>{{data.priority }}</td>
-                    <td>{{data.description }}</td>
-                    <td>{{data.status }}</td>                     
-                    <td class="text-center">
-                        <button [routerLink]="['/tickets/open/', data._id ]" class="btn btn-success btn-sm"> 
-                        <i class="fas fa-info"></i> </button>
-                    </td>
-                    <td class="text-center">
-                        <button [routerLink]="['/tickets/edit/', data._id ]" class="btn btn-primary btn-sm" role="button">
-                        <i class="fas fa-pencil-alt"></i></button>
-                    </td>
-                    <td class="text-center">
-                        <button [routerLink]="['/tickets/delete/', data._id ]" class="btn btn-danger btn-sm" role="button">
-                        <i class="fas fa-trash-alt">
-                        </i></button>
-                    </td>
-                </tr>
-                    <tr>
-                        <td colspan="7"></td>
-                    </tr>
-        </table>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped table-hover">
+        <tr>
+          <th class="text-center">Date</th>
+          <th class="text-center">Reference Number</th>
+          <th class="text-center">Priority</th>
+          <th class="text-center">Description</th>
+          <th class="text-center">Status</th>
+          <th class="text-center" colspan="3">Actions</th>
+        </tr>
+
+        <tr *ngFor="let data of ticketList">
+          <td>{{ data.date }}</td>
+          <td>{{ data.record }}</td>
+          <td>{{ data.priority }}</td>
+          <td>{{ data.description }}</td>
+          <td>{{ data.status }}</td>
+          <td class="text-center">
+            <button
+              [routerLink]="['/tickets/open/', data._id]"
+              class="btn btn-success btn-sm"
+            >
+              <i class="fas fa-info"></i>
+            </button>
+          </td>
+          <td class="text-center">
+            <button
+              [routerLink]="['/tickets/edit/', data._id]"
+              class="btn btn-primary btn-sm"
+              role="button"
+            >
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+          </td>
+          <td class="text-center">
+            <button
+              [routerLink]="['/tickets/delete/', data._id]"
+              class="btn btn-danger btn-sm"
+              role="button"
+            >
+              <i class="fas fa-trash-alt"> </i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="7"></td>
+        </tr>
+      </table>
     </div>
   </main>
-  
-  </body> 
+</body>
 
-  <app-footer></app-footer>
+<app-footer></app-footer>
