@@ -20,7 +20,7 @@ export class RestDataSource {
 
     constructor(private http: HttpClient) {        
 
-        this.baseUrl = 'https://group4-comp229.herokuapp.com/';
+        this.baseUrl = 'http://localhost:3000/';
         
       //  `${PROTOCOL}://${location.hostname}:${PORT}/`
 
