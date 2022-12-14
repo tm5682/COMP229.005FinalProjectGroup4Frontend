@@ -10,7 +10,7 @@ import { TicketsComponent } from './tickets/landing/tickets.component';
 import { AuthModule } from './tickets/auth/auth.module';
 import { AppRoutingModule } from '../app/app-rounting.module';
 import { AuthGuard } from "./tickets/auth/auth.guard";
-
+import { HomeComponent } from './tickets/homepage.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -18,6 +18,7 @@ import { AuthGuard } from "./tickets/auth/auth.guard";
   imports: [
     BrowserModule,
     IndexModule,
+    HomeComponent,
     PartialsModule,
     TicketsModule,
     AppRoutingModule,
