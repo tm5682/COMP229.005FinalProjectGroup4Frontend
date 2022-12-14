@@ -36,13 +36,13 @@
                 <td>{{data.description }}</td>
                 <td>{{data.status }}</td>                           
                     <td class="text-center">
-                        <a routerLink="/landing/tickets.component/ {{ data._id }}" class="btn btn-success btn-sm"> 
+                        <a routerLink="/landing/tickets.component/ {{ data._id }}" class="btn bg-primary btn-primary btn-sm"> 
                         <i class="fas fa-info"></i> </a>
                     </td>
                     <td class="text-center">
                         <!-- <a routerLink="/landing/edit/ {{ data._id }}" class="btn btn-primary btn-sm" role="button"> -->
-                        <button [routerLink]="['/tickets/edit', data._id]" class="btn bg-primary btn-primary btn-sm"></button>
-                        <i class="fas fa-pencil-alt"></i>
+                        <button [routerLink]="['/tickets/edit', data._id]" class="btn bg-primary btn-primary btn-sm">
+                        <i class="fas fa-pencil-alt"></i></button>
                     </td>
                     <td class="text-center">
                         <!-- <a routerLink="/landing/delete/ {{ data._id }}" class="btn btn-danger btn-sm" role="button"> -->

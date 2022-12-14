@@ -2,16 +2,27 @@
   <nav class="navbar fixed-top navbar-expand-sm bg-dark navbar-dark">
     <!-- Logo -->
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/src/app/tickets/homepage.html">
         <img src="/assets/logo.png" alt="logo" style="width:40px;">
       </a>
 
       <ul class="navbar-nav">
         <li class="nav-item">
          
-          <a class="nav-link" [class.active]= "title == 'Home'" href="/">
+          <a class="nav-link" [class.active]= "title == 'homepage'" href="tickets/homepage.html">
          
-              <i class="fas fa-home"></i> Home 
+              <i class="fas fa-home"></i> Home
+          </a>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item">
+         
+          <a class="nav-link" [class.active]= "title == 'Ticket'" href="/">
+         
+              <i class="fas fa-project-diagram"></i> Ticket
           </a>
         </li>
 
@@ -22,12 +33,6 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
           <ul class="navbar-nav">
       
-
-
-
-
-
-
             <li class="nav-item">  
               <a *ngIf="auth.username != null" class="nav-link" routerLink="" (click)="logout()">Sign Out ({{ auth.username }})</a>
               <a *ngIf="auth.username == null" class="nav-link" routerLink="/users/signin"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In</a>

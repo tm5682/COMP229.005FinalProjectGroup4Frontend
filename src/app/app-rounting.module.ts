@@ -6,10 +6,11 @@ import { AddEditComponent } from './tickets/landing/add_edit.component';
 import { IndexComponent } from './tickets/index.component';
 import { AuthGuard } from "./tickets/auth/auth.guard";
 import { TicketsComponent } from './tickets/landing/tickets.component';
-
+import { homeComponent } from './tickets/homepage';
 @NgModule({
     imports: [
         RouterModule.forRoot([
+            { path: "/tickets/homepage", component: homeComponent},
             { path: "", component: IndexComponent },
             { path: "/tickets/landing", component: TicketsComponent },
             { path: "tickets/:mode", component: AddEditComponent, canActivate: [AuthGuard]},
